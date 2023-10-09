@@ -69,7 +69,7 @@ fun main() = application {
         } else {
           try {
             val port = this.port.toInt()
-            check(port in 1..65535, ) {
+            check(port in 1..65535) {
               "port range: 1..65535"
             }
             oscOutput = osc.output(host, port).apply {
