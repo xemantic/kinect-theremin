@@ -3,10 +3,10 @@ import org.gradle.internal.os.OperatingSystem
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-group = "org.openrndr.template"
+group = "com.xemantic.openrndr"
 version = "1.0.0"
 
-val applicationMainClass = "TemplateProgramKt"
+val applicationMainClass = "com.xemantic.openrndr.theremin.KinectThereminKt"
 
 /**  ## additional ORX features to be added to this project */
 val orxFeatures = setOf<String>(
@@ -33,7 +33,7 @@ val orxFeatures = setOf<String>(
 //  "orx-jumpflood",
 //  "orx-kdtree",
 //  "orx-keyframer",
-//  "orx-kinect-v1",
+    "orx-kinect-v1",
 //  "orx-kotlin-parser",
 //  "orx-marching-squares",
 //  "orx-mesh-generators",
@@ -258,6 +258,9 @@ class Openrndr {
 
     init {
         dependencies {
+
+            implementation(libs.xemantic.osc.udp)
+
             runtimeOnly(openrndr("gl3"))
             runtimeOnly(openrndrNatives("gl3"))
             implementation(openrndr("openal"))
